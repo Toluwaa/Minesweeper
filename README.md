@@ -92,10 +92,11 @@ show_mine method:
 
 ## UI Features:
 - [ ] mine counter
-- [ ] stopwatch
+- [X] stopwatch
 - [ ] flags
 - [ ] mines
 - [ ] game over message
 - [ ] flag and uncover buttons
 - [ ] start new game
+- [x] Dropdown
 
