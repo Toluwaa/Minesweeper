@@ -1,12 +1,10 @@
 from tkinter import *
 from tkinter import ttk
-from tkinter.tix import IMAGETEXT
 import settings
 import utils
 from cell import Cell
 from board import Board
 import time
-from PIL import Image, ImageTk
 import emoji
 
 
