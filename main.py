@@ -105,13 +105,16 @@ stopwatch_label = Label(control_frame, text="00", font=("Helvetica", 15))
 stopwatch_label.pack()
 stopwatch_label.place(x=utils.width_percentage(26), y=0)
 
+elapsed_time = 0  # Initialize elapsed_time
+
 
 def update_stopwatch():
-    global start_time
+    global start_time, elapsed_time
 
-    # Calculate the elapsed time since the stopwatch started
-    current_time = time.time()
-    elapsed_time = current_time - start_time
+    if start_time > 0:  # Only update if the stopwatch has started
+        # Calculate the elapsed time since the stopwatch started
+        current_time = time.time()
+        elapsed_time = current_time - start_time
 
     # Format the elapsed time as hours, minutes, and seconds
     hours = int(elapsed_time // 3600)
@@ -162,12 +165,12 @@ def uncover():
 
 
 def start_new_game():
-    global start_time
+    global start_time, elapsed_time
     start_time = time.time()
-    # board.reset_board()
+    elapsed_time = 0  # Reset elapsed_time
     board.remove_all_mines()
     board.randomize_mines()  # Randomize mines again
-    update_stopwatch()
+    update_stopwatch()  # Start updating immediately after starting a new game
 
 
 # Control Buttons
@@ -190,6 +193,7 @@ newGameButton.place(x=utils.width_percentage(17), y=0)
 if __name__ == "__main__":
     # Initialize the start_time variable
     start_time = 0
+    elapsed_time = 0
 
     # Start the update_stopwatch function to update the stopwatch display
     update_stopwatch()
