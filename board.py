@@ -3,7 +3,6 @@ import random
 
 
 class Board:
-
     def __init__(self, rows, cols, center_frame):
         self.rows = rows
         self.cols = cols
@@ -12,16 +11,17 @@ class Board:
         self.selected_cell = None
         self.center_frame = center_frame
         self.total_mines = 0
+        self.flagged_cells = 0  # Initialize flagged cells count
         self.is_game_over = False
 
-        # populate the board with cells
+          # populate the board with cells
         for x in range(rows):
             for y in range(cols):
                 c = self.cells[x][y]
                 c.create_btn_object(center_frame)
                 c.cell_btn_object.config(
                     command=lambda row=x, col=y: self.on_cell_click(row, col))
-                c.cell_btn_object.grid(column=x, row=y)
+                c.cell_btn_object.grid(column=y, row=x)  # Swap x and y
 
     def remove_all_mines(self):
         for row in self.cells:
@@ -48,9 +48,10 @@ class Board:
             self.selected_cell = None
 
     def flag_selected_cell(self):
-        if self.selected_cell:
+        if self.selected_cell and not self.selected_cell.is_flagged:
             self.selected_cell.set_flagged()
             self.selected_cell.update_btn_text("🚩")
+            self.flagged_cells += 1  # Increment flagged cells count
         self.is_game_over = self.check_for_win()
 
     def uncover_selected_cell(self):

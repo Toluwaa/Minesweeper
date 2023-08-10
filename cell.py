@@ -14,8 +14,8 @@ class Cell:
     def create_btn_object(self, parent):
         btn = Button(
             parent,
-            width=5,
-            height=2,
+            width=3,  # Adjust the width for a smaller square
+            height=1,  # Adjust the height for a smaller square
             text=f' '
         )
         btn.bind('<Button-1>', self.locate)
