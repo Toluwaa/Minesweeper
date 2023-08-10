@@ -7,7 +7,7 @@ from board import Board
 import time
 import emoji
 
-
+# Importing font
 from tkinter.font import Font
 
 # custom_font = Font(family='Helvetica', size=your_font_size)
