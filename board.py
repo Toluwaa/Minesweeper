@@ -2,6 +2,7 @@ from cell import Cell
 import random
 
 
+
 class Board:
     def __init__(self, rows, cols, center_frame):
         self.rows = rows
@@ -63,6 +64,8 @@ class Board:
                 self.selected_cell.show_mine()
                 self.is_game_over = True
                 self.game_over()
+                show_game_over_message()  # Add this line to display the "Game Over" message
+
 
             else:
                 # get num of surrounding mines
@@ -157,3 +160,4 @@ class Board:
 
     def game_over(self):
         print("Game over!")
+        show_game_over_message()

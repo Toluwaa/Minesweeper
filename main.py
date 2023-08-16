@@ -9,6 +9,8 @@ import emoji
 
 
 from tkinter.font import Font
+from tkinter import Toplevel
+
 
 # custom_font = Font(family='Helvetica', size=your_font_size)
 
@@ -38,7 +40,7 @@ top_frame.place(x=0, y=0)
 control_frame = Frame(
     top_frame,
     bg='grey',
-    width=utils.width_percentage(33),
+    width=utils.width_percentage(45.7),
     height=utils.height_percent(5),
     bd=1,
     borderwidth=2
@@ -136,6 +138,13 @@ def start_stopwatch(event):
     if start_time == 0:
         start_time = time.time()
 
+def show_game_over_message():
+    game_over_window = Toplevel(root)
+    game_over_window.title("Game Over")
+    game_over_label = Label(game_over_window, text="Game Over!", font=("Helvetica", 20))
+    game_over_label.pack(padx=20, pady=20)
+
+
 
 start_time = 0
 
@@ -160,8 +169,12 @@ def flag():
 
 
 def uncover():
-    board.uncover_selected_cell()
-    print("Uncovered")
+    if board.selected_cell and not board.selected_cell.is_flagged and not board.selected_cell.is_uncovered:
+        if board.selected_cell.is_mine:
+            show_game_over_message()
+        else:
+            board.uncover_selected_cell()
+
 
 
 def start_new_game():

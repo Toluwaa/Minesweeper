@@ -23,7 +23,7 @@ class Cell:
 
         self.cell_btn_object = btn
 
-    # Updates the cell's text
+    # Updates the cells text
     def update_btn_text(self, text):
         if self.cell_btn_object:
             self.cell_btn_object.config(text=text)
