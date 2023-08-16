@@ -38,7 +38,7 @@ top_frame.place(x=0, y=0)
 control_frame = Frame(
     top_frame,
     bg='grey',
-    width=utils.width_percentage(45.7),
+    width=utils.width_percentage(33),
     height=utils.height_percent(5),
     bd=1,
     borderwidth=2
