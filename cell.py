@@ -23,7 +23,7 @@ class Cell:
 
         self.cell_btn_object = btn
 
-    # Updates the cells text
+    # Updates the cell's text
     def update_btn_text(self, text):
         if self.cell_btn_object:
             self.cell_btn_object.config(text=text)
@@ -47,4 +47,4 @@ class Cell:
 
     # logic for when the cell uncovers a mine
     def show_mine(self):
-        self.cell_btn_text("💣")
+        self.cell_btn_object.config(bg="red")

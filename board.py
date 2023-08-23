@@ -28,6 +28,7 @@ class Board:
         for row in self.cells:
             for cell in row:
                 cell.is_mine = False
+                cell.update_btn_text(" ")
 
     def on_cell_click(self, row, col):
         cell = self.cells[row][col]
