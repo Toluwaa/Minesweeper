@@ -158,6 +158,8 @@ class Board:
         print("You win!")
         return True
 
-    def game_over(self):
+    def game_over():
         print("Game over!")
-        show_game_over_message()
+        board.is_game_over = True  # Set the game over flag
+        show_game_over_message()  # Call the game over message function
+      

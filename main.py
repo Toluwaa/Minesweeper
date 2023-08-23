@@ -7,7 +7,7 @@ from board import Board
 import time
 import emoji
 
-
+# Importing font
 from tkinter.font import Font
 from tkinter import Toplevel
 
