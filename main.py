@@ -181,8 +181,9 @@ def start_new_game():
     global start_time, elapsed_time
     start_time = time.time()
     elapsed_time = 0  # Reset elapsed_time
+    difficulty = selected_difficulty.get()  # Get the selected difficulty
     board.remove_all_mines()
-    board.randomize_mines()  # Randomize mines again
+    board.randomize_mines(difficulty)  # Pass the difficulty to randomize_mines
     update_stopwatch()  # Start updating immediately after starting a new game
 
 
