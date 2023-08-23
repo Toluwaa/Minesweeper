@@ -47,4 +47,4 @@ class Cell:
 
     # logic for when the cell uncovers a mine
     def show_mine(self):
-        self.cell_btn_object.config(bg="red")
+        self.cell_btn_text("💣")
