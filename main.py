@@ -189,6 +189,12 @@ newGameButton.pack()
 newGameButton.place(x=utils.width_percentage(17), y=0)
 
 
+# class StartMenu():
+#    title_label = Label(root, text="Welcome to Minesweeper", font=title_font)
+#    title_label.pack(pady=20)
+
+#    start_button = Button(root, text="Start Game", font=button_font)
+#    start_button.pack()
 if __name__ == "__main__":
     # Initialize the start_time variable
     start_time = 0
@@ -197,7 +203,10 @@ if __name__ == "__main__":
     update_stopwatch()
 
     # Run the tkinter main event loop
-    # root.mainloop()
+    root.mainloop()
 
-# Run Window
-root.mainloop()
+    # pass
+
+
+# if __name__ == "__main__":
+#    root.StartMenu()
