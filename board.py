@@ -2,7 +2,6 @@ from cell import Cell
 import random
 
 
-
 class Board:
     def __init__(self, rows, cols, center_frame):
         self.rows = rows
@@ -15,7 +14,7 @@ class Board:
         self.flagged_cells = 0  # Initialize flagged cells count
         self.is_game_over = False
 
-          # populate the board with cells
+        # populate the board with cells
         for x in range(rows):
             for y in range(cols):
                 c = self.cells[x][y]
@@ -65,7 +64,6 @@ class Board:
                 self.is_game_over = True
                 self.game_over()
                 show_game_over_message()  # Add this line to display the "Game Over" message
-
 
             else:
                 # get num of surrounding mines
@@ -141,7 +139,7 @@ class Board:
             if not cell.is_mine:
                 cell.is_mine = True
                 cell.update_btn_text(
-                    "💣")
+                    "")
                 mines_placed += 1
 
         print(f"Placed {mines_placed} mines")
@@ -161,4 +159,5 @@ class Board:
     def game_over():
         print("Game over!")
         board.is_game_over = True  # Set the game over flag
+        cell.update_btn_text("")
         show_game_over_message()  # Call the game over message function
