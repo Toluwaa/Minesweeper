@@ -40,7 +40,7 @@ top_frame.place(x=0, y=0)
 control_frame = Frame(
     top_frame,
     bg='grey',
-    width=utils.width_percentage(45.7),
+    width=utils.width_percentage(22.9),
     height=utils.height_percent(5),
     bd=1,
     borderwidth=2
@@ -101,11 +101,11 @@ difficulty_dropdown.place(x=0,
 label = Label(control_frame,
               text=f'{emoji.emojize(":alarm_clock:")}', font=("Helvetica", 19), fg="red", bg="grey")
 label.pack()
-label.place(x=utils.width_percentage(22), y=0)
+label.place(x=utils.width_percentage(20), y=0)
 
 stopwatch_label = Label(control_frame, text="00", font=("Helvetica", 15))
 stopwatch_label.pack()
-stopwatch_label.place(x=utils.width_percentage(26), y=0)
+stopwatch_label.place(x=utils.width_percentage(14), y=0)
 
 elapsed_time = 0  # Initialize elapsed_time
 
@@ -138,12 +138,16 @@ def start_stopwatch(event):
     if start_time == 0:
         start_time = time.time()
 
+
 def show_game_over_message():
     game_over_window = Toplevel(root)
     game_over_window.title("Game Over")
-    game_over_label = Label(game_over_window, text="Game Over!", font=("Helvetica", 20))
-    game_over_label.pack(padx=20, pady=20)
+    game_over_label = Label(
+        game_over_window, text="Game Over!", font=("Helvetica", 20))
+    game_over_window.resizable(False, False)
 
+    game_over_label.pack(padx=50, pady=20)
+    game_over_window.place(x=utils.width_percentage(40), y=100)
 
 
 start_time = 0
@@ -176,7 +180,6 @@ def uncover():
             board.uncover_selected_cell()
 
 
-
 def start_new_game():
     global start_time, elapsed_time
     start_time = time.time()
@@ -193,7 +196,8 @@ flagButton = Button(
 flagButton.pack()
 flagButton.place(x=40, y=30)
 
-uncoverButton = Button(left_frame, text="Uncover Button", command=uncover)
+uncoverButton = Button(
+    left_frame, text=f'{emoji.emojize(":dove:")}', command=uncover)
 uncoverButton.pack()
 uncoverButton.place(x=40, y=60)
 
@@ -201,7 +205,7 @@ uncoverButton.place(x=40, y=60)
 newGameButton = Button(control_frame,
                        text=f'{emoji.emojize(":grinning_face:")}', font=("Helvetica", 13), fg="yellow", bg="#807E75", command=start_new_game)
 newGameButton.pack()
-newGameButton.place(x=utils.width_percentage(17), y=0)
+newGameButton.place(x=utils.width_percentage(10), y=0)
 
 
 if __name__ == "__main__":
